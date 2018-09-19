@@ -4,7 +4,7 @@
 #include <string>
 #include <cstdlib> // gives access to rand functions
 #include <ctime> // gives access to time functionts
-
+#include <string>
 
 //Project includes
 #include "Critter.h"
@@ -30,6 +30,21 @@ int main()
 
 	// create and instance of a critter class
 	Critter narwhal;
+
+
+	//game Font
+	sf::Font gameFont;
+	gameFont.loadFromFile("fonts/mainFont.ttf");
+
+	// score
+	int score = 0;
+	sf::Text scoreText;
+	scoreText.setFont(gameFont);
+	scoreText.setString("Score: " + std::to_string(score));
+	scoreText.setCharacterSize(40);
+	scoreText.setFillColor(sf::Color::White);
+	scoreText.setPosition(50, 50);
+
 
 	//------------------------------
 	//End Game Setup
@@ -75,6 +90,13 @@ int main()
 
 
 
+		//See if there is any pending score
+		score += narwhal.GetPendingScore();
+		narwhal.ClearPendingScore();
+		scoreText.setString("Score: " + std::to_string(score));
+
+
+
 		//end update
 
 		gameWindow.clear();
@@ -82,7 +104,7 @@ int main()
 		//Draw Everything
 
 		narwhal.Draw(gameWindow);
-
+		gameWindow.draw(scoreText);
 
 
 		gameWindow.display();
