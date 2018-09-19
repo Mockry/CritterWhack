@@ -1,8 +1,10 @@
+//Libraries
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <string>
 
-
+//Project includes
+#include "Critter.h"
 
 int main()
 {	//---------------------------
@@ -19,6 +21,11 @@ int main()
 
 	// Timer Functionality
 	sf::Clock gameClock;
+
+
+
+	// create and instance of a critter class
+	Critter narwhal;
 
 	//------------------------------
 	//End Game Setup
@@ -54,24 +61,21 @@ int main()
 		//Upate
 		//----------------------------
 		sf::Time frameTime = gameClock.restart();
-			
+
 
 
 		//end update
 
-		//Draw Everything
-
 		gameWindow.clear();
 
+		//Draw Everything
 
-
-
-
+		narwhal.Draw(gameWindow);
 
 
 
 		gameWindow.display();
-			
+
 		//End Draw
 	}
 
