@@ -50,8 +50,15 @@ int main()
 
 		sf::Event Event;
 		while (gameWindow.pollEvent(Event))
-
 		{
+			// process input on critters
+			narwhal.Input(Event);
+
+
+
+
+
+
 			if (Event.type == sf::Event::Closed)
 			{
 				gameWindow.close();
