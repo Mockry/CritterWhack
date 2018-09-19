@@ -1,21 +1,78 @@
-#include <SFML/Graphics.hpp>
-int main()
-{
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+#include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
+#include <string>
 
-	while (window.isOpen())
+
+
+int main()
+{	//---------------------------
+	//Setup
+	//--------------------------
+
+	// Make a variable called gameWindow of the type RenderWindow
+	sf::RenderWindow gameWindow;
+	gameWindow.create(sf::VideoMode::getDesktopMode(), "Critter Whack",
+		sf::Style::Titlebar | sf::Style::Close);
+
+
+
+
+	// Timer Functionality
+	sf::Clock gameClock;
+
+	//------------------------------
+	//End Game Setup
+	//------------------------------
+
+
+
+
+	//-------------------------------
+	// Game Loop
+	//-------------------------------
+	while (gameWindow.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
+		//-----------------------------------
+		//Input
+		//-----------------------------------
+
+
+		sf::Event Event;
+		while (gameWindow.pollEvent(Event))
+
 		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-		window.clear();
-		window.draw(shape);
-		window.display();
+			if (Event.type == sf::Event::Closed)
+			{
+				gameWindow.close();
+			}
+		}// end event polling loop
+
+		//end input
+
+
+		//----------------------------
+		//Upate
+		//----------------------------
+		sf::Time frameTime = gameClock.restart();
+			
+
+
+		//end update
+
+		//Draw Everything
+
+		gameWindow.clear();
+
+
+
+
+
+
+
+
+		gameWindow.display();
+			
+		//End Draw
 	}
 
 	return 0;
