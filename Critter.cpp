@@ -1,4 +1,6 @@
 //includes
+//libraries
+#include <cstdlib>
 //project includes
 #include "Critter.h"
 
@@ -12,7 +14,8 @@ Critter::Critter()
 	//Set up sprite
 	m_texture.loadFromFile("graphics/narwhal.png");
 	m_sprite.setTexture(m_texture);
-	m_sprite.setPosition(300,300);
+	m_sprite.setPosition(rand() % sf::VideoMode::getDesktopMode().width,
+		rand() % sf::VideoMode::getDesktopMode().height);
 
 }
 

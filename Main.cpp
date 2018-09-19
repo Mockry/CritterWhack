@@ -2,6 +2,9 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <string>
+#include <cstdlib> // gives access to rand functions
+#include <ctime> // gives access to time functionts
+
 
 //Project includes
 #include "Critter.h"
@@ -22,7 +25,8 @@ int main()
 	// Timer Functionality
 	sf::Clock gameClock;
 
-
+	// seed our random number generator
+	srand(time(NULL));
 
 	// create and instance of a critter class
 	Critter narwhal;
